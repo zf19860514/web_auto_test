@@ -5,7 +5,7 @@ import subprocess
 
 # 自动生成allure报告
 def allure_auto():
-    allure_cmd = " allure generate ../report/result -o ../report/html --clean"
+    allure_cmd = "allure generate ../report/result -o ../report/html --clean"
     print("成功生成测试报告")
     try:
         subprocess.call(allure_cmd, shell=True)

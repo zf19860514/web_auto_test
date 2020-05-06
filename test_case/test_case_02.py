@@ -1,5 +1,6 @@
 import pytest
-
+import logging
+import time
 
 '''
 函数阶级方法
@@ -10,6 +11,7 @@ import pytest
 
 # 创建类名时首字母必须大写、大写、大写
 class Test_pytest:
+    logging.basicConfig(level=logging.DEBUG)
 
     def setup(self):
         print("Case开始执行")
@@ -19,6 +21,9 @@ class Test_pytest:
 
     @pytest.mark.last   # 最后一个执行
     def test_01(self):
+        log = logging.getLogger("test_01")
+        time.sleep(1)
+        log.debug("after 1 sec")
         assert 1 == 1
 
     # 跳过用例执行
@@ -27,6 +32,8 @@ class Test_pytest:
         assert 2 == 1
 
     def test_03(self):
+        log = logging.getLogger("test_03")
+        log.debug('after 2 sec')
         assert 2 == 2
 
     # 用例执行顺序 pip3 install pytest-ordering
@@ -81,4 +88,4 @@ if __name__ == '__main__':
     安装:pip3 install pytest-xdist
     多个CPU并行执行用例，直接加-n 3是并行数量:pytest -n 3 • 在多个终端下一起执行
     '''
-    pytest.main(["-n 4", "test_case_02.py"])
+    pytest.main(["test_case_02.py"])

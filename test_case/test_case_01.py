@@ -98,10 +98,10 @@ class Test_Auto:
         r = post_requests(url, body, headers)
 
 
-if __name__ == '__main__':
-    # 单独执行单个方法时，路径后面添加::+方法名
-    # pytest.main(["test_case_01.py::test_01_login01"])
-    pytest.main(["test_case_01.py"])
+# if __name__ == '__main__':
+#     # 单独执行单个方法时，路径后面添加::+方法名
+#     # pytest.main(["test_case_01.py::test_01_login01"])
+#     pytest.main(["test_case_01.py"])
 
 
 
